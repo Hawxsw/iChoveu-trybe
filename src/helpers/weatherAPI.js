@@ -26,5 +26,5 @@ export const getWeatherByCity = async (cityURL) => {
     icon: urlCity.current.condition.icon,
     url: cityURL,
   };
-  return conditionReturn;
+  return conditionReturn
 };
