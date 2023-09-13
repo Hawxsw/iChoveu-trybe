@@ -2,7 +2,7 @@ const token = import.meta.env.VITE_TOKEN;
 
 export const searchCities = async (term) => {
   const responseCitieUrl = await fetch(
-    `http://api.weatherapi.com/v1/search.json?lang=pt&key=${token}&q=${term}`
+    `http://api.weatherapi.com/v1/search.json?lang=pt&key=${token}&q=${term}`,
   );
   const dataCitie = await responseCitieUrl.json();
   if (dataCitie.length < 1) {
@@ -14,7 +14,7 @@ export const searchCities = async (term) => {
 
 export const getWeatherByCity = async (cityURL) => {
   const foundCityUrl = await fetch(
-    `http://api.weatherapi.com/v1/current.json?lang=pt&key=${token}&q=${cityURL}`
+    `http://api.weatherapi.com/v1/current.json?lang=pt&key=${token}&q=${cityURL}`,
   );
   const urlCity = await foundCityUrl.json();
   console.log(urlCity);
@@ -26,5 +26,5 @@ export const getWeatherByCity = async (cityURL) => {
     icon: urlCity.current.condition.icon,
     url: cityURL,
   };
-  return conditionReturn
+  return conditionReturn;
 };
